@@ -1,4 +1,4 @@
-local opt = vim.opt  --less typing
+local opt = vim.opt --less typing
 
 --line numbering
 opt.relativenumber = true
@@ -18,11 +18,11 @@ opt.ignorecase = true
 opt.smartcase = true
 
 --cursor line  (helpful in class)
-opt.cursorline = true
+--opt.cursorline = true
 
 --appearance
 opt.termguicolors = true
-opt.background = "light"
+opt.background = "dark" --change this when you principally use light/dark
 opt.signcolumn = "yes"
 
 --backspace
@@ -36,4 +36,3 @@ opt.splitright = true
 opt.splitbelow = true
 
 opt.iskeyword:append("-")
-
