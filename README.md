@@ -9,6 +9,10 @@ you should just be able to move all these files to
 
 install instructions and pre-reqs coming
 
+latest addition (adding harpoon), breaks install
+manually open .config/nvim/lua/ProfessorSteve/plugins-setup.lua
+and write.  everything should fall into place after that
+
 MacOS
 1. install brew
 2. install iTerm2, neovim, ripgrep, cppcheck
