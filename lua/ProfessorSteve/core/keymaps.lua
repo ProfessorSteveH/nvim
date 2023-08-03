@@ -1,29 +1,36 @@
 vim.g.mapleader = " "
 
-local keymap = vim.keymap  --less typing
+local keymap = vim.keymap --less typing
 
 --general
 keymap.set("n", "<leader>nh", ":nohl<CR>") --remove the hilighting from prior search
 keymap.set("n", "x", '"_x') -- delete a char and NOT save to register
 
-keymap.set("n", "<leader>sv", "<C-w>v")  --split vertical
-keymap.set("n", "<leader>sh", "<C-w>s")  --split horizontal
-keymap.set("n", "<leader>se", "<C-w>=")  --split windows equally
-keymap.set("n", "<leader>sx", ":close<CR>")  --close the split window
+keymap.set("n", "<leader>sv", "<C-w>v") --split vertical
+keymap.set("n", "<leader>sh", "<C-w>s") --split horizontal
+keymap.set("n", "<leader>se", "<C-w>=") --split windows equally
+keymap.set("n", "<leader>sx", ":close<CR>") --close the split window
 
 --plugin keymaps
-    --vim maximizer
-    keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") --maximize the current split
-   
-    --NvimTree
-    keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") --toggle the file manager
+--vim maximizer
+keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") --maximize the current split
 
-    --telescope
-    keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
-    -- next requires ripgrep from https://github.com/BurntSushi/ripgrep#installation
-    keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
-    keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
-    keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
-    keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
+--NvimTree
+keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") --toggle the file manager
 
+--telescope
+keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
+-- next requires ripgrep from https://github.com/BurntSushi/ripgrep#installation
+keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
+keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
+keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
+keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
 
+--harpoon
+local mark = require("harpoon.mark")
+local ui = require("harpoon.ui")
+keymap.set("n", "<leader>h", ui.toggle_quick_menu)
+keymap.set("n", "<leader>ha", mark.add_file)
+keymap.set("n", "<leader>hr", mark.rm_file)
+keymap.set("n", "<leader>hn", ui.nav_next)
+keymap.set("n", "<leader>hp", ui.nav_prev)
